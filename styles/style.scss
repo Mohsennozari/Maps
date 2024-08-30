@@ -1,0 +1,152 @@
+// Variables
+$font-family: Georgia, 'Times New Roman', Times, serif;
+$background-color: #f4f4f4;
+$primary-color: #cf0000;
+$hover-color: #f7de05;
+$highlight-color: rgba(255, 238, 0, 0.9); // Slight transparency for better visibility
+$button-color: #0483a3;
+$button-hover-color: #f05454;
+$popup-background: #ffffff;
+$marker-shadow: rgba(0, 0, 0, 0.6);
+$border-radius: 10px; // Common border radius for consistency
+$box-shadow-light: 0 0 15px rgba(0, 0, 0, 0.2);
+$box-shadow-dark: 0 2px 12px rgba(0, 0, 0, 0.1);
+
+// Global Styles
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: $font-family;
+    background-color: $background-color;
+    font-size: 18px; // Font size for better readability
+}
+
+header {
+    background: linear-gradient(45deg, rgb(1, 167, 144), rgb(0, 174, 255));
+    color: white;
+    padding: 10px;
+    text-align: center;
+
+    #logo {
+        max-width: 100px; // Adjust logo size
+        margin-top: 10px;
+    }
+}
+
+#map {
+    height: 100vh; // Full height for the map
+    width: 100%; // Full width for the map
+    margin: 0;
+    padding: 0;
+    box-shadow: $box-shadow-light;
+    border-radius: $border-radius;
+}
+
+// Control Layers
+.leaflet-control-layers-expanded {
+    background-color: $highlight-color;
+    font-family: $font-family;
+    font-size: 20px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow-dark;
+}
+
+// Leaflet Bar Links
+.leaflet-bar {
+    a {
+        background-color: $button-color;
+        color: white;
+        border-radius: 4px;
+        padding: 10px;
+        margin: 10px;
+        font-size: 24px; // Adjusted font size for better readability
+        font-family: $font-family;
+        text-decoration: none;
+        border: none;
+        transition: background-color 0.6s;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        display: inline-flex; // Align icon and text
+        align-items: center; // Center vertically
+
+        &:hover {
+            background-color: $button-hover-color;
+        }
+    }
+}
+
+// Geocoder Input
+.leaflet-control-geocoder-form {
+    input {
+        border-radius: 8px;
+        border: 1px solid $primary-color;
+        padding: 8px;
+        width: 220px; // Increased width for better usability
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        transition: border-color 0.3s;
+        font-size: 18px; // Font size for input field
+        background-color: #721616; // Background color for input
+        color: $hover-color; // Text color for input
+        font-family: $font-family;
+
+        &:hover, 
+        &:focus {
+            border-color: $hover-color;
+            outline: none;
+        }
+    }
+}
+
+// Popup Styles
+.leaflet-popup {
+    width: fit-content;
+    padding: 10px;
+    border-radius: $border-radius;
+    background-color: $popup-background;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+}
+
+.leaflet-popup-content {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333333;
+}
+
+.leaflet-popup-close-button {
+    font-size: 20px;
+    color: #333333;
+    opacity: 1; // Make the close button visible
+
+    &:hover {
+        color: $button-hover-color;
+    }
+}
+
+// Search Button
+#search-btn {
+    font-size: 24px;
+    padding: 12px;
+    border-radius: $border-radius;
+    background-color: #721616;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+    color: #ffffff; // Changed to white for better contrast
+}
+
+// Marker Icon
+.leaflet-marker-icon {
+    border-radius: 50%;
+    box-shadow: 0 0 12px $marker-shadow;
+    transition: transform 0.2s;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+// Media Queries
+@media (max-width: 768px) {
+    .leaflet-control-geocoder-form input {
+        width: 150px; // Adjust input width for smaller screens
+    }
+}
